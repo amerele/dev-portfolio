@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { TabItems } from "../../components/Tabs/TabItems";
 
-export const Dashboard = () =>{
-    return <>home</>
-}
+export const Dashboard = () => {
+  return <TabItems />;
+};

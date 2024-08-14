@@ -1,34 +1,17 @@
-import { JwtPayload, jwtDecode } from "jwt-decode";
+import { useState } from "react";
 import StylesProvider from "./StylesProvider";
 import RoutesProvider from "./RoutesProvider";
-import UserContext from "./UserContext";
-import { useEffect, useState } from "react";
-
-interface UserLoggedType {
-  name: string;
-}
-
-interface CustomJwtPayload extends JwtPayload {
-  name?: string;
-}
+import TabsContext from "./TabsContext";
 
 const AppProvider = () => {
-  const [userLogged, setUserLogged] = useState<UserLoggedType | null>(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem("t");
-    if (token) {
-      const decodedToken = jwtDecode<CustomJwtPayload>(token.toString());
-      setUserLogged({ name: decodedToken.name || "Unknown" });
-    }
-  }, []);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <UserContext.Provider value={{ UserLogged: userLogged, setUserLogged }}>
+    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
       <StylesProvider>
         <RoutesProvider />
       </StylesProvider>
-    </UserContext.Provider>
+    </TabsContext.Provider>
   );
 };
 

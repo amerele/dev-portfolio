@@ -9,5 +9,9 @@ export const theme = extendTheme({
   },
   components: {
   },
+  colors: {
+    primary: '#FFFAE5',
+    secundary: '#FFDD32',
+  },
   config,
 });

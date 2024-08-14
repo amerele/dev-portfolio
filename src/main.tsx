@@ -1,7 +1,6 @@
 import { ColorModeScript } from '@chakra-ui/react';
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import { theme } from './style';
 import AppProvider from './provider';
 
